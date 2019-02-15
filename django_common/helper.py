@@ -147,7 +147,7 @@ def send_mail(subject, message, from_email, recipient_emails, files=None,
                 email.attach(filename, content, mimetype)
         if reply_to:
             email.extra_headers = {'Reply-To': reply_to}
-        email.send()
+        return email.send()
     except Exception as e:
         # TODO:  Raise error again so that more information is included in the logs?
         logging.error('Error sending message [{0}] from {1} to {2} {3}'.format(
